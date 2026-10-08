@@ -1,35 +1,47 @@
+# Dashboard Netflix
+
 ## Escopo do Projeto
 
-O projeto tem como objetivo analisar dados do catálogo da Netflix e desenvolver um dashboard capaz de responder três perguntas principais:
+O projeto tem como objetivo analisar dados do catálogo da Netflix e responder três perguntas principais:
 
-1. **Qual é a relação entre o ano de lançamento dos títulos e o ano em que eles foram adicionados à Netflix?**
+1. Quanto tempo um título demora entre seu lançamento e sua entrada na Netflix?
+2. Como a duração média dos filmes varia ao longo dos anos?
+3. Qual a proporção de séries com apenas uma temporada em comparação com séries que possuem duas ou mais temporadas?
 
-A análise buscará identificar o intervalo entre o lançamento de filmes e séries e sua entrada no catálogo da plataforma, permitindo observar se os conteúdos são adicionados próximos ao seu lançamento ou anos depois, tendo como principal analíse se os streammings diminuiram o tempo que filmes e séries demoram para ficarem disponivel para serem assistidos de casa
+## Design e Usabilidade
 
-2. **Como a duração média dos filmes varia ao longo dos anos?**
+O dashboard foi organizado de forma simples, com os gráficos distribuídos em uma única tela para facilitar a leitura e a comparação das informações.
 
-A análise calculará a duração média dos filmes para cada ano de lançamento, permitindo observar a evolução desse indicador ao longo do tempo e verificar se existe uma tendência de aumento, estabilidade ou diminuição na duração dos filmes mais recentes.
+Foram utilizados gráficos de linha para analisar mudanças ao longo do tempo e gráfico de rosca para comparar a proporção entre séries com uma temporada e séries com duas ou mais temporadas.
 
-3. **Quantas séries possuem apenas uma temporada?**
+## Padrão Visual
 
-A análise identificará a quantidade de séries com somente uma temporada e sua proporção em relação ao total de séries presentes no conjunto de dados. tendo uma noção de quantos projetos são cancelados no ínicio de sua história
+O dashboard utiliza cores inspiradas na identidade visual da Netflix, com fundo escuro, vermelho para destaque e branco e cinza para textos e informações secundárias.
 
-O dashboard será desenvolvido com foco em apresentar essas informações de forma simples, visual e objetiva, utilizando indicadores e gráficos que facilitem a interpretação dos dados e a identificação de padrões no catálogo analisado.
+## Processo de ETL
 
+Os dados foram importados do arquivo CSV para o Excel utilizando o Power Query.
 
+Durante o tratamento dos dados foram realizadas algumas transformações, como:
 
+- criação do ano de entrada na Netflix a partir da coluna de data;
+- cálculo do tempo entre o lançamento e a entrada na Netflix;
+- conversão da duração dos filmes para minutos;
+- separação das séries entre uma temporada e duas ou mais temporadas.
 
-## Descrição do processo de ETL
-Durante o processo de ETL, o arquivo netflix_titles.csv será importado e preparado para a análise no dashboard.
-Serão realizadas as seguintes etapas de tratamento:
-- importar o arquivo CSV para o Excel;
-- verificar valores ausentes nas colunas utilizadas no projeto;
-- converter a coluna date_added para um formato de data;
-- criar uma nova coluna com o ano de entrada do título na Netflix;
-- utilizar a coluna release_year para comparar o ano de lançamento com o ano de entrada na plataforma;
-- filtrar os registros do tipo Movie;
-- remover o texto " min" da coluna duration e transformar a duração dos filmes em valor numérico;
-- calcular a duração média dos filmes por ano de lançamento;
-- filtrar os registros do tipo TV Show;
-- identificar e contar as séries cuja duração corresponde a 1 Season;
-- organizar os dados tratados em tabelas e tabelas dinâmicas para alimentar os gráficos e indicadores do dashboard.
+Depois do tratamento, os dados foram utilizados em tabelas dinâmicas para criação dos gráficos.
+
+## Fonte de Dados
+
+Foi utilizado o arquivo `netflix_titles.csv`, contendo informações sobre filmes e séries do catálogo da Netflix. EXTRAIDO DO KAGGLE
+
+## Ferramentas Utilizadas
+
+- Microsoft Excel
+- Power Query
+- Tabelas Dinâmicas
+- GitHub
+
+## Dashboard
+
+O dashboard foi desenvolvido no Microsoft Excel e está disponível no arquivo `dashboard.xlsx`.
