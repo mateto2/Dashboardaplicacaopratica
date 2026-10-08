@@ -15,3 +15,21 @@ A análise calculará a duração média dos filmes para cada ano de lançamento
 A análise identificará a quantidade de séries com somente uma temporada e sua proporção em relação ao total de séries presentes no conjunto de dados. tendo uma noção de quantos projetos são cancelados no ínicio de sua história
 
 O dashboard será desenvolvido com foco em apresentar essas informações de forma simples, visual e objetiva, utilizando indicadores e gráficos que facilitem a interpretação dos dados e a identificação de padrões no catálogo analisado.
+
+
+
+
+## Descrição do processo de ETL
+Durante o processo de ETL, o arquivo netflix_titles.csv será importado e preparado para a análise no dashboard.
+Serão realizadas as seguintes etapas de tratamento:
+- importar o arquivo CSV para o Excel;
+- verificar valores ausentes nas colunas utilizadas no projeto;
+- converter a coluna date_added para um formato de data;
+- criar uma nova coluna com o ano de entrada do título na Netflix;
+- utilizar a coluna release_year para comparar o ano de lançamento com o ano de entrada na plataforma;
+- filtrar os registros do tipo Movie;
+- remover o texto " min" da coluna duration e transformar a duração dos filmes em valor numérico;
+- calcular a duração média dos filmes por ano de lançamento;
+- filtrar os registros do tipo TV Show;
+- identificar e contar as séries cuja duração corresponde a 1 Season;
+- organizar os dados tratados em tabelas e tabelas dinâmicas para alimentar os gráficos e indicadores do dashboard.
